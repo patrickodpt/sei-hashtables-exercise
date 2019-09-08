@@ -15,7 +15,7 @@ class Node {
   }
 }
 
-// note: this is a simpler LinkedList class than in the Linked List lesson
+// note: this is a simpler LinkedList class than in the Linked List lesson // sure....
 class LinkedList {
   constructor(){
     // initialize a "head" property to null
@@ -26,41 +26,22 @@ class LinkedList {
     // if this list's head is null make that node the head,
     // otherwise add it to end of the list
 
-    const newNode = new Node(key, value);
-    if(!this.head){
-        this.head = newNode;
-    }else{
-        let walker = this.head;
-        while(walker.next){
-            if(walker.key === key){
-                walker.data[1] = value;
-                return;
-            }
-            walker = walker.next;
-        }
-        if(walker.key === key){
-            walker.data[1] = value;
-        }else{
-            walker.next = newNode;
-        }
+    //create new node with params
+    let addNode = new Node(key, value)
+
+    function helperAdd() {
+      let walker = this.head
+      let follower;
+
+      while (walker) {
+        follower = walker
+        walker = walker.next
+      }
+      walker = addNode
+      return walker
     }
 
-    // MY CODE:::::
-    // let addNode = new Node(key, value)
-    //
-    // function helperAdd() {
-    //   let walker = this.head
-    //   let follower;
-    //
-    //   while (walker) {
-    //     follower = walker
-    //     walker = walker.next
-    //   }
-    //   walker = addNode
-    //   return walker
-    // }
-    //
-    // !this.head ? this.head = addNode : helperAdd();
+    !this.head ? this.head = addNode : helperAdd();
 
   }
   search(key){
@@ -79,7 +60,7 @@ class LinkedList {
       }
       walker = walker.next;
     }
-    
+
     return false
 
   }
